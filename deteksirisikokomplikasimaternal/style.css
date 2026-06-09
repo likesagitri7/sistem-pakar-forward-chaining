@@ -1,0 +1,273 @@
+/* ==========================================================================
+   STYLE.CSS - FINAL: PRETTY SIDEBAR + RED CHECKBOX + BLACK CHARTS/TABLES
+   ========================================================================== */
+
+/* 1. IMPORT FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+/* 2. GLOBAL RESET */
+html, body, [class*="css"] {
+    font-family: 'Poppins', sans-serif;
+    font-size: 19px; 
+}
+
+/* BACKGROUND */
+.stApp {
+    background: linear-gradient(135deg, #E0F2F1 0%, #FFFFFF 50%, #FCE4EC 100%);
+    background-attachment: fixed; 
+    background-size: cover;
+}
+
+
+
+h1, h2, h3 { font-weight: 900 !important; letter-spacing: -0.5px; }
+p, li, .stMarkdown { font-weight: 600 !important; line-height: 1.6 !important; }
+
+h1 { font-size: 3.2rem !important; }
+h2 { font-size: 2.4rem !important; }
+h3 { font-size: 1.8rem !important; }
+
+/* ========================
+   4. SIDEBAR MENU DESIGN 
+   ======================== */
+
+/* KARTU PUTIH DI BELAKANG LOGO */
+.sidebar-header-container {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* MENU NAVIGASI */
+.stRadio > div[role="radiogroup"] > label {
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 10px 20px;
+    border-radius: 10px; 
+    margin-bottom: 5px;
+    color: #333333 !important; 
+    font-weight: 600 !important;
+    transition: all 0.3s ease;
+}
+
+.stRadio > div[role="radiogroup"] > label:hover {
+    background-color: rgba(233, 30, 99, 0.05); 
+    color: #E91E63 !important; 
+    padding-left: 25px; 
+}
+
+/* ITEM YANG SEDANG AKTIF (PINK & PUTIH) */
+.stRadio > div[role="radiogroup"] > label[data-checked="true"] {
+    background-color: #E91E63 !important; /* PINK SOLID */
+    color: #FFFFFF !important; /* TEKS PUTIH */
+    box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
+    border: none !important;
+    font-weight: 700 !important;
+}
+
+section[data-testid="stSidebar"] {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+
+/* ==========================================================================
+   5. CHECKBOX STYLE (PERBAIKAN KOTAK MERAH FULL, CENTANG PUTIH JELAS)
+   ========================================================================== */
+
+div[data-testid="stCheckbox"] { margin-bottom: 0.5rem; }
+
+/* 1. PASTIKAN BACKGROUND TEKS BERSIH (MENCEGAH BLOK MERAH PADA TEKS) */
+div[data-testid="stCheckbox"] label,
+div[data-testid="stCheckbox"] label > div,
+div[data-testid="stCheckbox"] label > span:not([data-testid="stCheckboxUI"]):nth-child(n+2),
+div[data-testid="stCheckbox"] p {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+/* 2. GAYA TEKS LABEL (TETAP NORMAL) */
+div[data-testid="stCheckbox"] label p {
+    font-size: 20px !important; 
+    font-weight: 400 !important; 
+    color: #333333 !important; 
+    margin-left: 10px !important;
+}
+
+/* 3. BENTUK KOTAK VISUAL (BELUM DICENTANG) */
+/* Menargetkan kotak visual (elemen span pertama atau div pertama dalam label) */
+div[data-testid="stCheckbox"] label > span:first-of-type,
+div[data-testid="stCheckbox"] div[data-baseweb="checkbox"] > div:first-child {
+    background-color: #FFFFFF !important;
+    border: 2px solid #C4C4C4 !important; /* Ditebalkan sedikit agar terlihat jelas */
+    border-radius: 4px !important; 
+    width: 20px !important; 
+    height: 20px !important;
+    min-width: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* 4. BENTUK KOTAK (SAAT DICENTANG -> MERAH FULL) */
+/* Menggunakan :has() untuk mengecat KOTAK-nya saja saat input terpilih */
+div[data-testid="stCheckbox"] label:has(input:checked) > span:first-of-type,
+div[data-testid="stCheckbox"] label:has(input:checked) div[data-baseweb="checkbox"] > div:first-child {
+    background-color: #FF4B4B !important; /* Warna Merah Solid */
+    border-color: #FF4B4B !important;
+}
+
+/* 5. IKON CENTANG (PUTIH TEGAS SAAT DICENTANG) */
+div[data-testid="stCheckbox"] label:has(input:checked) > span:first-of-type svg,
+div[data-testid="stCheckbox"] label:has(input:checked) div[data-baseweb="checkbox"] > div:first-child svg {
+    fill: #FFFFFF !important; 
+    stroke: #FFFFFF !important;
+    color: #FFFFFF !important;
+    stroke-width: 2px !important; /* Ketebalan centang diperbesar */
+    width: 14px !important;
+    height: 14px !important;
+    display: block !important;
+    opacity: 1 !important;
+}
+
+/* Menonaktifkan elemen bayangan bawaan Streamlit yang kadang mengganggu */
+div[data-testid="stCheckbox"] label > span:first-of-type::after {
+    display: none !important;
+}
+/* ========================
+   6. KOMPONEN UMUM
+   ======================== */
+div.stButton > button {
+    border-radius: 50px !important;
+    padding: 0.6rem 2rem !important; 
+    font-size: 18px !important; 
+    font-weight: 700 !important;
+    background-color: white !important;
+    color: #006064 !important; 
+    border: 3px solid #006064 !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+div.stButton > button:hover {
+    background-color: #006064 !important;
+    color: white !important;
+}
+
+/* =========================================================
+   GAYA UNTUK JUDUL UTAMA (Mengalahkan warna hitam global) 
+   ========================================================= */
+/* =========================================================
+   SESUDAH (Diperbaiki ke Rata Kiri dan Warna Judul Teal) 
+   ========================================================= */
+.hero-title { 
+    color: #004D40 !important; /* Warna teal akan berfungsi setelah Langkah 1 */
+    font-weight: 900 !important; 
+    font-size: 3.0rem !important;
+    text-align: left !important; /* UBAH DARI center MENJADI left */
+    margin-bottom: 5px !important;
+}
+
+.hero-subtitle {
+    text-align: left !important; /* UBAH DARI center MENJADI left */
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: #666666 !important; 
+    margin-bottom: 30px !important;
+}
+
+/* TAMBAHKAN blok kode ini untuk memastikan wadah tombol juga rata kiri */
+div.stButton {
+    text-align: left !important; /* Memaksa wadah tombol rata kiri */
+}
+/* ========================================================= */
+
+/* =========================================================
+   GAYA UNTUK KARTU (Rounded, Center, Drop Shadow)
+   ========================================================= */
+.modern-card { 
+    background-color: #FFFFFF !important; 
+    border: none !important; /* Menghapus garis tepi yang kaku */
+    border-radius: 20px !important; /* Membuat sudut menjadi melengkung */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important; /* Menambahkan bayangan halus */
+    color: #000000 !important; 
+    padding: 30px 20px !important; /* Memberi ruang (jarak) di dalam kartu */
+    text-align: center !important; /* Membuat teks di dalamnya menjadi rata tengah */
+    height: 100%;
+}
+
+/* Memastikan gambar/ikon di dalam kartu ikut rata tengah */
+.modern-card img {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 15px !important; /* Jarak antara ikon dan teks di bawahnya */
+}
+
+/* Mengatur jarak dan ukuran teks di dalam kartu */
+.modern-card h3 {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    font-size: 1.3rem !important;
+}
+
+.modern-card p {
+    font-size: 0.9rem !important;
+    color: #555555 !important;
+    line-height: 1.5 !important;
+}
+
+header[data-testid="stHeader"] { background: transparent !important; }
+div[data-testid="stVerticalBlock"] > div:first-child { margin-top: 0 !important; }
+.stAppDeployButton, footer { display: none !important; }
+
+/* ===============================================
+   7. PERBAIKAN KHUSUS GRAFIK, TABEL & DATAFRAME 
+   =============================================== */
+
+/* A. Target DataFrame/Tabel Streamlit (Area 'Top Diagnosa' & 'List') */
+[data-testid="stDataFrame"] div,
+[data-testid="stDataFrame"] span,
+[data-testid="stTable"] div,
+[data-testid="stTable"] span,
+div[data-testid="stVerticalBlock"] div[data-testid="element-container"] p {
+    color: #000000 !important;      /* Teks Hitam Pekat */
+    font-weight: 700 !important;    /* Bold */
+    font-size: 16px !important;     /* Ukuran agar terbaca */
+}
+
+/* B. Target Header Tabel */
+[data-testid="stDataFrame"] th,
+[data-testid="stTable"] th {
+    color: #000000 !important;
+    font-weight: 900 !important;    /* Header Lebih Tebal */
+    background-color: rgba(0,0,0,0.05) !important; /* Biar header jelas bedanya */
+}
+
+/* C. Target Grafik (Chart SVG Text) - Seperti '01 Feb', Angka Axis */
+g text, 
+svg text, 
+.vega-embed text {
+    fill: #000000 !important;       
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 500 !important;    /* Ketebalan dikurangi agar tidak terlalu padat */
+    font-size: 11px !important;     /* Ukuran diperkecil agar label tanggal muat */
+}
+
+/* D. Target Judul Grafik (Misal: 'Tren Partisipasi') */
+h1, h2, h3, h4 {
+    color: #000000 !important;
+    text-shadow: none !important;
+}
+
+/* PRINT MODE */
+@media print {
+    .stApp { background: white !important; }
+    div[data-baseweb="checkbox"] svg path {
+        fill: #FF0000 !important;
+        stroke: #FF0000 !important;
+    }
+    /* Pastikan grafik juga hitam saat diprint */
+    text { fill: #000000 !important; }
+}
