@@ -40,8 +40,8 @@ cd nama-repository
 ```bash
 python -m venv venv
 ```
-   # Untuk Windows: venv\Scripts\activate
-   # Untuk Mac/Linux: source venv/bin/activate
+* Untuk Windows: venv\Scripts\activate
+* Untuk Mac/Linux: source venv/bin/activate
 ### 5. Instal semua pustaka (library) yang dibutuhkan melalui terminal: 
 ```bash
 pip install -r requirements.txt
