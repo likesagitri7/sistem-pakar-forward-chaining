@@ -56,7 +56,9 @@ Aplikasi ini dikembangkan untuk tujuan penelitian akademis dan demonstrasi logik
 
 ## 👨‍💻 Penulis
 Like Sagitri 
+
 Fresh Graduate | Information Systems
 
 Data Analytics | Data Science | Machine Learning
+
 [LinkedIn](https://www.linkedin.com/in/like-sagitri-helen)
