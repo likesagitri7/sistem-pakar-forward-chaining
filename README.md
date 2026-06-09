@@ -32,13 +32,24 @@ Untuk menjalankan aplikasi sistem pakar ini di komputer lokal, ikuti langkah-lan
 ```bash
   git clone (https://github.com/likesagitri7/sistem-pakar-forward-chaining.git)
 ```
-### 3. Masuk ke dalam direktori proyek: cd nama-repository
+### 3. Masuk ke dalam direktori proyek: 
+```bash
+cd nama-repository
+```
 ### 4. (Opsional namun disarankan) Buat dan aktifkan Virtual Environment: 
+```bash
 python -m venv venv
-   # Untuk Windows: venv\Scripts\activate
-   # Untuk Mac/Linux: source venv/bin/activate
-### 5. Instal semua pustaka (library) yang dibutuhkan melalui terminal: pip install -r requirements.txt
-### 6. Jalankan aplikasi menggunakan Streamlit: streamlit run app.py
+```
+   Untuk Windows: venv\Scripts\activate
+   Untuk Mac/Linux: source venv/bin/activate
+### 5. Instal semua pustaka (library) yang dibutuhkan melalui terminal: 
+```bash
+pip install -r requirements.txt
+```
+### 6. Jalankan aplikasi menggunakan Streamlit: 
+```bash
+streamlit run app.py
+```
 
 ⚠️ Disclaimer
 Aplikasi ini dikembangkan untuk tujuan penelitian akademis dan demonstrasi logika pemrograman. Hasil diagnosis dari sistem pakar ini tidak dapat menggantikan diagnosis medis profesional, konsultasi dokter, atau tenaga medis yang sah. Tidak ada data riwayat rekam medis pasien nyata yang disertakan dalam repositori ini demi menjaga privasi dan etika data.
@@ -46,5 +57,6 @@ Aplikasi ini dikembangkan untuk tujuan penelitian akademis dan demonstrasi logik
 👨‍💻 Penulis
 Like Sagitri 
 Fresh Graduate | Information Systems
+
 Data Analytics | Data Science | Machine Learning
 [LinkedIn](https://www.linkedin.com/in/like-sagitri-helen)
