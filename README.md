@@ -40,8 +40,8 @@ cd nama-repository
 ```bash
 python -m venv venv
 ```
-   Untuk Windows: venv\Scripts\activate
-   Untuk Mac/Linux: source venv/bin/activate
+   # Untuk Windows: venv\Scripts\activate
+   # Untuk Mac/Linux: source venv/bin/activate
 ### 5. Instal semua pustaka (library) yang dibutuhkan melalui terminal: 
 ```bash
 pip install -r requirements.txt
@@ -51,10 +51,10 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-⚠️ Disclaimer
+## ⚠️ Disclaimer
 Aplikasi ini dikembangkan untuk tujuan penelitian akademis dan demonstrasi logika pemrograman. Hasil diagnosis dari sistem pakar ini tidak dapat menggantikan diagnosis medis profesional, konsultasi dokter, atau tenaga medis yang sah. Tidak ada data riwayat rekam medis pasien nyata yang disertakan dalam repositori ini demi menjaga privasi dan etika data.
 
-👨‍💻 Penulis
+## 👨‍💻 Penulis
 Like Sagitri 
 Fresh Graduate | Information Systems
 
